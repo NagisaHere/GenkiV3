@@ -1,0 +1,1 @@
+This tool is used to assist with JAPN3010/3020 students. With the generated four kanji, write a sentence utilising two of the kanji generated, preferably with one of the grammar points learnt so far in the course.
