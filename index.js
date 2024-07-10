@@ -6,6 +6,18 @@ function generateRandom(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
+// OLD
+// function ToggleRare() {
+//     if (disableRare == false) {
+//         disableRare = true;
+//     }
+//     else {
+//         disableRare = false;
+//     }
+// }
+
+var disableRare = false
+
 function ArrTwo() {
     /* Gets kanji from kanjiTwo for JAPN3040 */
     console.log("function has been called")
@@ -15,14 +27,18 @@ function ArrTwo() {
     let appended = [];
 
     while (i < 4) {
-        // this random is not actually random
         let j = generateRandom(kanjiLength);
-        console.log(j);
+        // console.log(j);
+        let elem = KANJITWO[j]
+
+        if (disableRare && elem.includes('rare')) {
+            continue;
+        }
 
         // make sure you dont have duplicate numbers
         if (appended.includes(j) == false) {
-            appended.push(i);
-            out += KANJITWO[j] + " ";
+            appended.push(i);  // add index to appended
+            out += elem + " ";
             i++;
         }
     }
@@ -30,12 +46,12 @@ function ArrTwo() {
     return out.trim();
 }
 
+// Generate Kanji Button
 let button1 = document.getElementById('generate');
 
 button1.addEventListener('click', () => {
     ChangeKanji();
 })
-
 
 function ChangeKanji() {
     const ans = ArrTwo();
@@ -46,7 +62,15 @@ function ChangeKanji() {
 // tester function
 console.log(ArrTwo());
 
-// document.getElementById("body__kanji").onclick = generate();
+// Toggle Rare switch
+// using getElementsByClassName actuall returns all child elements
+// I should be trying to retrieve type checkbox instead
 
-// get a var that keeps track of whether we are on JAPN3010 or JAPN3030
+var toggleRare = document.getElementById("togglerare")
+
+// code used to look at the state of disableRare in console
+toggleRare.addEventListener('click', () => {
+    disableRare = toggleRare.checked
+    console.log(disableRare);
+})
 
