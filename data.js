@@ -188,3 +188,50 @@ export const KANJITWO = [
     "然う然う（rare）"
 ];
 
+export const GRAMMARTWO = [
+    {
+        chapter: 20,
+        grammar: [
+            "謙譲語",
+            "お＋動詞(stem)＋する",
+            "ないで",
+            "か/かどうか",
+            "名前というアイテム",
+            "やすい",
+            "にくい"
+        ]
+    },
+    {
+        chapter: 21,
+        grammar: [
+            "passive form",
+            "てある",
+            "間に",
+            "形容詞する",
+            "てほしい",
+        ]
+    },
+    {
+        chapter: 22,
+        grammar: [
+            "causative form",
+            "causative + てあげる/くれる/もらう",
+            "動詞(stem) + なさい",
+            "~ば",
+            "のに",
+            "のように",
+            "のような"
+        ]
+    },
+    {
+        chapter: 23,
+        grammar: [
+            "causative passive form",
+            "~ても",
+            "ことにする",
+            "ことにしている",
+            "まで",
+            "~方"
+        ]
+    },
+]
