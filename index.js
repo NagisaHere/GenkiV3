@@ -6,16 +6,7 @@ function generateRandom(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
-// OLD
-// function ToggleRare() {
-//     if (disableRare == false) {
-//         disableRare = true;
-//     }
-//     else {
-//         disableRare = false;
-//     }
-// }
-
+var darkMode = false
 var disableRare = false
 
 function ArrTwo() {
