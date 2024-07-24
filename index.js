@@ -28,7 +28,7 @@ function ArrTwo() {
 
         // make sure you dont have duplicate numbers
         if (appended.includes(j) == false) {
-            appended.push(i);  // add index to appended
+            appended.push(j);  // add index to appended
             out += elem + " ";
             i++;
         }
@@ -65,3 +65,10 @@ toggleRare.addEventListener('click', () => {
     console.log(disableRare);
 })
 
+
+// select chapter button
+function test() {
+    console.log("Chapter 20 has been pressed");
+}
+
+var chapterListener = document.getElementsByTagName('li');

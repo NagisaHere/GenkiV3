@@ -134,3 +134,26 @@ input:checked + .slider:before {
 }
 
 /* Create Hover */
+
+.chapterselector__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  margin: 0 30%;
+}
+
+.chapterselector__item {
+  font-size: 30px;
+  height: 80px;
+  background-color: #d3d3d3;
+  padding: 25px 0;
+}
+
+.chapterdisplay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
