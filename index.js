@@ -66,9 +66,15 @@ toggleRare.addEventListener('click', () => {
 })
 
 
+// ----------------------
 // select chapter button
-function test() {
-    console.log("Chapter 20 has been pressed");
-}
+// ----------------------
 
-var chapterListener = document.getElementsByTagName('li');
+// this only adds the clicks to the menu
+// pretty sure it cannot distinguish between chapters (yay)
+var chapter = document.getElementsByClassName("chapterselector__menu")[0];
+
+chapter.addEventListener('click', () => {
+    console.log("Chapter 20 has been pressed");
+    // var selectedchapter = document.getElementByID
+})
