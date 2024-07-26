@@ -72,9 +72,38 @@ toggleRare.addEventListener('click', () => {
 
 // this only adds the clicks to the menu
 // pretty sure it cannot distinguish between chapters (yay)
-var chapter = document.getElementsByClassName("chapterselector__menu")[0];
 
-chapter.addEventListener('click', () => {
-    console.log("Chapter 20 has been pressed");
-    // var selectedchapter = document.getElementByID
-})
+
+var chapterIndexes = {
+    "Ch20": 0,
+    "Ch21": 0,
+    "Ch22": 0,
+    "Ch23": 0
+}
+
+// initialise event listeners
+for (chapter in chapterIndexes) {
+    var elem = document.getElementById(chapter);
+
+    elem.addEventListener('click', () => {
+        console.log("I have been clicked");
+    })
+}
+
+
+/* OLD 
+/ var chapter = document.getElementsByClassName("chapterselector__item")[chapterIndex];
+
+// this adds the click listener to the whooole thing
+// need it to be for every chapter instead
+// get a for loop to do it? then store their on/off values in
+// a dictonary in the format of {'ChXX': 0 (off)}
+// chapter.addEventListener('click', () => {
+//     console.log("Chapter 20 has been pressed");
+//     // grab the id of the chapter?
+
+
+//     chapter.style.color = 'blue';
+//     // var selectedchapter = document.getElementByID
+// })
+*/
