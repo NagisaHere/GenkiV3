@@ -81,12 +81,28 @@ var chapterIndexes = {
     "Ch23": 0
 }
 
+let chapter_length = Object.getOwnPropertyNames(chapterIndexes).length;
+
 // initialise event listeners
-for (chapter in chapterIndexes) {
+for (let chapter in chapterIndexes) {
+
+    // var chapter = chapterIndexes[chapter]; // this only accesses the value
+    console.log(chapter); // I have no idea why this is only doing it twice
     var elem = document.getElementById(chapter);
 
     elem.addEventListener('click', () => {
-        console.log("I have been clicked");
+        console.log(chapter + " has been clicked");
+
+        // clear all the other colours
+
+        for (let chapterTwo in chapterIndexes) {
+            var tempElem = document.getElementById(chapterTwo);
+            tempElem.style.backgroundColor = 'red';  /// apparently colour not defined??
+        }
+
+        // change current to blue
+        elem.style.backgroundColor = 'blue';
+
     })
 }
 
