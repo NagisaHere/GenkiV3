@@ -1,4 +1,4 @@
-import { KANJITWO } from "./data.js";
+import { KANJITWO, GRAMMARTWO } from "./data.js";
 
 const kanjiLength = KANJITWO.length;
 
@@ -97,11 +97,23 @@ for (let chapter in chapterIndexes) {
 
         for (let chapterTwo in chapterIndexes) {
             var tempElem = document.getElementById(chapterTwo);
-            tempElem.style.backgroundColor = 'red';  /// apparently colour not defined??
+            tempElem.style.backgroundColor = 'red';
+            console.log(tempElem + "has been set to red");
         }
 
         // change current to blue
-        elem.style.backgroundColor = 'blue';
+        console.log("hello from " + chapter);
+
+        // only ch23 is stored in elem from memory
+        // but chapter still gets updated
+        var currElem = document.getElementById(chapter);
+        currElem.style.backgroundColor = 'blue';
+
+        // retrieve all the grammar from
+
+        // update chapterdisplay__content
+        // var content = document.getElementsByClassName("chapterdisplay__content");
+
 
     })
 }
