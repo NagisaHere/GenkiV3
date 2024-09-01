@@ -190,7 +190,7 @@ export const KANJITWO = [
 
 export const GRAMMARTWO = [
     {
-        chapter: 20,
+        chapter: "Ch20",
         grammar: [
             "謙譲語",
             "お＋動詞(stem)＋する",
@@ -202,7 +202,7 @@ export const GRAMMARTWO = [
         ]
     },
     {
-        chapter: 21,
+        chapter: "Ch21",
         grammar: [
             "passive form",
             "てある",
@@ -212,7 +212,7 @@ export const GRAMMARTWO = [
         ]
     },
     {
-        chapter: 22,
+        chapter: "Ch22",
         grammar: [
             "causative form",
             "causative + てあげる/くれる/もらう",
@@ -224,7 +224,7 @@ export const GRAMMARTWO = [
         ]
     },
     {
-        chapter: 23,
+        chapter: "Ch23",
         grammar: [
             "causative passive form",
             "~ても",
@@ -235,3 +235,43 @@ export const GRAMMARTWO = [
         ]
     },
 ]
+
+export const GRAMMARTWOTEST = {
+    "Ch20" : [
+            "謙譲語",
+            "お＋動詞(stem)＋する",
+            "ないで",
+            "か/かどうか",
+            "名前というアイテム",
+            "やすい",
+            "にくい"
+        ],
+
+    "Ch21"  : [
+                "passive form",
+                "てある",
+                "間に",
+                "形容詞する",
+                "てほしい",
+            ],
+
+    "Ch22" : [
+        "causative form",
+        "causative + てあげる/くれる/もらう",
+        "動詞(stem) + なさい",
+        "~ば",
+        "のに",
+        "のように",
+        "のような"
+    ],
+
+    "Ch23" : [
+                "causative passive form",
+                "~ても",
+                "ことにする",
+                "ことにしている",
+                "まで",
+                "~方"
+    ],
+
+}

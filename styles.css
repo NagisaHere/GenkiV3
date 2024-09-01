@@ -161,3 +161,12 @@ input:checked + .slider:before {
 #Ch21 {
   background-color: #ff0000;
 }
+
+#grammar__container {
+  display: flex;
+  flex-direction: column;
+}
+
+#grammar__content {
+  background-color: #2196F3;
+}

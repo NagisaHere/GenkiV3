@@ -1,4 +1,4 @@
-import { KANJITWO, GRAMMARTWO } from "./data.js";
+import { KANJITWO, GRAMMARTWO, GRAMMARTWOTEST } from "./data.js";
 
 const kanjiLength = KANJITWO.length;
 
@@ -94,7 +94,6 @@ for (let chapter in chapterIndexes) {
         console.log(chapter + " has been clicked");
 
         // clear all the other colours
-
         for (let chapterTwo in chapterIndexes) {
             var tempElem = document.getElementById(chapterTwo);
             tempElem.style.backgroundColor = 'red';
@@ -103,6 +102,25 @@ for (let chapter in chapterIndexes) {
 
         // change current to blue
         console.log("hello from " + chapter);
+        
+        // display text
+        let grammarContainer = document.getElementById("grammar__container");
+
+        // clear all html elements
+        grammarContainer.innerHTML = "";
+
+        console.log(GRAMMARTWOTEST[chapter])
+
+        // attempt to create element
+        for (let grammarText in GRAMMARTWOTEST[chapter]) {
+            let grammarElement = document.createElement("p");
+            grammarElement.id = "grammar__content";
+
+            // why is this accessed like this? I have no idea
+            grammarElement.innerHTML = GRAMMARTWOTEST[chapter][grammarText];
+
+            grammarContainer.appendChild(grammarElement);
+        }
 
         // only ch23 is stored in elem from memory
         // but chapter still gets updated
