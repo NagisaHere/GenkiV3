@@ -95,8 +95,10 @@ for (let chapter in chapterIndexes) {
 
         // clear all the other colours
         for (let chapterTwo in chapterIndexes) {
+            // could try get the parent?
             var tempElem = document.getElementById(chapterTwo);
-            tempElem.style.backgroundColor = 'red';
+            // console.log("temp elem parent " + tempElem.parentElement.name)
+            tempElem.parentElement.style.backgroundColor = 'red';
             console.log(tempElem + "has been set to red");
         }
 
@@ -125,7 +127,7 @@ for (let chapter in chapterIndexes) {
         // only ch23 is stored in elem from memory
         // but chapter still gets updated
         var currElem = document.getElementById(chapter);
-        currElem.style.backgroundColor = 'blue';
+        currElem.parentElement.style.backgroundColor = 'blue';
 
         // retrieve all the grammar from
 
