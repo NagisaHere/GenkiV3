@@ -8,31 +8,156 @@
     margin: 0;
     padding: 0;
     font-family: 'Kumbh Sans', sans-serif;
-    background-color: #A8D897;
+    /* turns out setting background colour in root ruins a lot of things...*/
 
 }
 
 /* How do I center this div */
 
-.header h1 {
-    padding-bottom: 100px;
-    text-align: center;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: black;
-    -moz-text-fill-color: black;
+/*Navbar configuration*/
+.navbar {
+  background: #fff;
+  height: 80px;
+  /*flex brings elements onto a "row"
+  essentially positioning things like a box array*/
+  display: flex;
+  /*changes the alignment in a flex box
+  you can see the effect in https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content*/
+  justify-content: center;
+  align-items: center;
+  /*font size relative to root font size, which acts as a "multipler"
+  by default the font size is 16px*/
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  /*z-index is the "layer" of the element
+  999 or some big number ensures that the navbar is always above other
+  elements when scrolling through the site.*/
+  z-index: 999;
 }
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  /*margin in px in order of top, right, bottom, left*/
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+/*# is used for html elements with id*/
+#navbar__logo {
+  background-color: #131313;
+  background-size: 100%;
+  /*These are used to make sure site works on different browsers*/
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  /*Used for font of Logo*/
+  display: flex;
+  /*see below; center and stretch seems the most useful
+  https://developer.mozilla.org/en-US/docs/Web/CSS/align-items*/
+  align-items: center;
+  /*Determine what type of cursor is used when hovering over*/
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.fa-gem {
+  margin-right: 0.5rem;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+
+.navbar__item {
+  height: 80px;
+}
+
+.navbar__links {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%
+}
+
+.navbar__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.navbar__links:hover {
+  color: #35721f;
+  transition: all 0.3s ease;
+}
+
+/* END OF NAVBAR */
 
 
 .body {
-    text-align: center;
-    z-index: 1;
+  display: flex;
+  justify-content: center;
+  background-color: #A8D897;
 }
+
+.kanji__container {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    z-index: 1;
+    padding-top: 2rem;
+}
+
+#kanji__element {
+  font-size: 50px;
+  font-weight: 500;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 30px;
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+  text-align: center;
+}
+
+#kanji__element:hover {
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+#kanji__placeholder {
+  
+}
+
+/* END OF KANJI CONTAINER*/
+
+
+/* Generate button 
+
+Ripple effect is thanks to
+https://github.com/Basir-PD/100-Projects-HTML-CSS-JavaScript/blob/master/13-%20Button%20Ripple%20Effect/script.js
+*/
 
 .button {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #A8D897;
 }
 
 .button #generate {
@@ -49,88 +174,115 @@
     outline: none;
 }
 
-.togglerare{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* Toggle switch to disable/enable rare */
- /* The switch - the box around the slider */
-
- /* Courtesy of https://www.w3schools.com/howto/howto_css_switch.asp */
-.switch {
+.btn-ripple {
   position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  color: #f3f3f3;
+  border-radius: 4rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
 }
 
-.slider:before {
+.btn-ripple:hover {
+  box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ripple {
   position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  animation: rippleEffect 0.3s ease-out;
   border-radius: 50%;
-} 
+}
 
+@keyframes rippleEffect {
+  from {
+    width: 0px;
+    height: 0px;
+  }
+  to {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
 
 .description {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #A8D897;
 }
 
 #desc {
     text-align: center;
 }
 
+
 /* Create Hover */
+.chapter {
+  background-color: #A8D897;
+}
+
+.chapterselector h1 {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.chapterselector__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  padding-top: 2rem;
+  margin: 0 30%;
+}
+
+/* Problem with this is that the button scales with text size*/
+.chapterselector__item {
+  height: 60px;
+  width: 80px;
+  background-color: #d3d3d3;
+  padding: 15px 0;
+  border-radius: 20px;
+}
+
+.chapterdisplay {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-left: 20%;
+  width: 60%;
+  height: 300px;
+}
+
+/** All the flexbox stuff should be adjusted here*/
+/* Except I cannot get the box to expand fully here for some reason*/
+/* Why do you do what you do*/
+#grammar__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#grammar__content {
+  background-color: #2196F3;
+  text-align: center;
+  font-size: 25px;
+  padding-top: 10px;
+  height: 20%;
+  width: 50%;
+  border-radius: 30px;
+}
+
+
+.footer {
+  padding-left: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
