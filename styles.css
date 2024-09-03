@@ -147,7 +147,11 @@
 /* END OF KANJI CONTAINER*/
 
 
-/* Generate button */
+/* Generate button 
+
+Ripple effect is thanks to
+https://github.com/Basir-PD/100-Projects-HTML-CSS-JavaScript/blob/master/13-%20Button%20Ripple%20Effect/script.js
+*/
 
 .button {
     display: flex;
