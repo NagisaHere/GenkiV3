@@ -4,52 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenkiV3</title>
     <link rel="stylesheet" href="styles.css"/>
-    <title>GenkiV2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <h1>GENKI Kanji Generator</h1>
-    </div>
+    <nav class="navbar">
+        <!--This is a container-->
+        <div class="navbar__container"> 
+            <a href="/index.html" id="navbar__logo"><i class="fas fa-fire"></i>GENKI Kanji Generator</a>
+            <!--A div class and id are just attributes used to target-->
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <!--Unordered list (ul), I have no idea what it is used for-->
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="https://github.com/NagisaHere/" target="_blank" class="navbar__links">GitHub</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="https://ebookcentral.proquest.com/lib/uql/detail.action?docID=6417968" target="_blank" class="navbar__links">Textbook</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="body">
-        <!-- Reference kanji generation here -->
-         <h1 id="body__kanji">Sample text</h1>
+        <div class="kanji__container" id = "kanji__container">
+            <!-- Reference kanji generation here -->
+            <h1 id="kanji__placeholder">Press Generate!</h1>
+        </div>
     </div>
 
     <div class="button">
-        <button type = "button" id="generate">Generate</button>
+        <button class = "btn btn-ripple"type = "button" id="generate">Generate</button>
     </div>
 
     
+    <div class="chapter">
+        <div class="chapterselector">
+            <div class="chapterselector__container">
+                <!-- list goes here -->
+                <ol class="chapterselector__menu">
+                    <li class="chapterselector__item"><a id="Ch20">Ch20</a></li>
+                    <li class="chapterselector__item"><a id="Ch21">Ch21</a></li>
+                    <li class="chapterselector__item"><a id="Ch22">Ch22</a></li>
+                    <li class="chapterselector__item"><a id="Ch23">Ch23</a></li>
+                </ol>
+            </div>
 
-    <div class="chapterselector">
-        <div class="chapterselector__container">
-            <!-- list goes here -->
-            <ol class="chapterselector__menu">
-                <li class="chapterselector__item"><a id="Ch20">Ch20</a></li>
-                <li class="chapterselector__item"><a id="Ch21">Ch21</a></li>
-                <li class="chapterselector__item"><a id="Ch22">Ch22</a></li>
-                <li class="chapterselector__item"><a id="Ch23">Ch23</a></li>
-            </ol>
+            <h1>Grammar Display</h1>
+        </div>
+        <div class="chapterdisplay">
+                <!-- Display what is selected in character selector -->
+                 <div class="chapterdisplay__content" id="grammar__container">
+                    <p id="grammar__content">Click a Chapter!</p>
+                 </div>
         </div>
     </div>
-    <div class="chapterdisplay">
-            <!-- Display what is selected in character selector -->
-             <div class="chapterdisplay__content" id="grammar__container">
-                <p id="grammar__content"></p>
-             </div>
-    </div>
-    
 
-    <div class="togglerare">
-        <h1>Toggle Rare</h1>
-        <label class="switch">
-            <input id="togglerare" type="checkbox">
-            <span class="slider round"></span>
-        </label>
-    </div>
-    
 
     <div class="description">
         <!-- courtesy of https://stackoverflow.com/questions/4642681/simple-way-to-display-data-in-a-txt-file-on-a-webpage -->
@@ -59,7 +76,7 @@
     </div>
 
     <div class="footer">
-        <p href="https://github.com/NagisaHere/">Developed by Ryan Wang</p>
+        <p>Developed by Ryan Wang</p>
     </div>
 
     
