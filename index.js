@@ -1,15 +1,16 @@
-import { KANJITWO, GRAMMARTWO, GRAMMARTWOTEST } from "./data.js";
+import { KANJIONE, KANJITWO, GRAMMARTWO } from "./data.js";
 
 const kanjiLength = KANJITWO.length;
+const ALLKANJI = KANJIONE.concat(KANJITWO)
 
 function generateRandom(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
 var darkMode = false
+var currArray = ALLKANJI
 
-function ArrTwo() {
-    /* Gets kanji from kanjiTwo for JAPN3040 */
+function FetchKanji() {
     console.log("function has been called")
     let i = 0; 
     let appendedIndex = [];
@@ -18,7 +19,7 @@ function ArrTwo() {
     while (i < 4) {
         let j = generateRandom(kanjiLength-1);
         // console.log(j);
-        let elem = KANJITWO[j]
+        let elem = currArray[j]
 
         // make sure you dont have duplicate numbers
         if (appendedIndex.includes(j) == false) {
@@ -43,7 +44,7 @@ function ChangeKanji() {
     var kanjiContainer = document.getElementById("kanji__container")
     kanjiContainer.innerHTML = ""
 
-    const ans = ArrTwo();
+    const ans = FetchKanji();
     console.log(ans);
 
     // try split the string and create an element to store it in body
@@ -62,7 +63,7 @@ function ChangeKanji() {
 }
 
 // tester function
-console.log(ArrTwo());
+console.log(FetchKanji());
 
 
 // fancy ripple effect
@@ -140,15 +141,15 @@ for (let chapter in chapterIndexes) {
         // clear all html elements
         grammarContainer.innerHTML = "";
 
-        console.log(GRAMMARTWOTEST[chapter])
+        console.log(GRAMMARTWO[chapter])
 
         // attempt to create element
-        for (let grammarText in GRAMMARTWOTEST[chapter]) {
+        for (let grammarText in GRAMMARTWO[chapter]) {
             let grammarElement = document.createElement("p");
             grammarElement.id = "grammar__content";
 
             // why is this accessed like this? I have no idea
-            grammarElement.innerHTML = GRAMMARTWOTEST[chapter][grammarText];
+            grammarElement.innerHTML = GRAMMARTWO[chapter][grammarText];
 
             grammarContainer.appendChild(grammarElement);
         }
@@ -168,21 +169,3 @@ for (let chapter in chapterIndexes) {
 
     })
 }
-
-
-/* OLD 
-/ var chapter = document.getElementsByClassName("chapterselector__item")[chapterIndex];
-
-// this adds the click listener to the whooole thing
-// need it to be for every chapter instead
-// get a for loop to do it? then store their on/off values in
-// a dictonary in the format of {'ChXX': 0 (off)}
-// chapter.addEventListener('click', () => {
-//     console.log("Chapter 20 has been pressed");
-//     // grab the id of the chapter?
-
-
-//     chapter.style.color = 'blue';
-//     // var selectedchapter = document.getElementByID
-// })
-*/
