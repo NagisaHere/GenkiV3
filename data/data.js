@@ -878,3 +878,11 @@ export const GRAMMARTWO = {
     ],
 
 }
+
+export const GRAMMARCHECK = {
+
+}
+
+export const CONJUGATIONCHECK = {
+    
+}

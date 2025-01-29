@@ -1,4 +1,5 @@
-import { KANJIONE, KANJITWO, GRAMMARTWO } from "./data.js";
+import { KANJIONE, KANJITWO, GRAMMARTWO } from "../data/data.js";
+import { SetupAnswer } from "./answer.js";
 
 const kanjiLength = KANJITWO.length;
 const ALLKANJI = KANJIONE.concat(KANJITWO)
@@ -55,12 +56,12 @@ function ChangeKanji() {
         kanjiElement.href = 'https://jisho.org/search/' + ans[kanji]
         kanjiElement.target = '_blank'
 
-        // add a hyperlink
-
         kanjiContainer.appendChild(kanjiElement)
     }
     
 }
+
+
 
 // tester function
 console.log(FetchKanji());
@@ -109,7 +110,7 @@ var chapterIndexes = {
 
 let chapter_length = Object.getOwnPropertyNames(chapterIndexes).length;
 
-// initialise event listeners
+// initialise event listeners for each chapter
 for (let chapter in chapterIndexes) {
 
 
@@ -169,3 +170,5 @@ for (let chapter in chapterIndexes) {
 
     })
 }
+
+SetupAnswer()

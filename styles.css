@@ -208,6 +208,28 @@ https://github.com/Basir-PD/100-Projects-HTML-CSS-JavaScript/blob/master/13-%20B
   }
 }
 
+/* START OF TEXTBOX */
+
+.answer_container {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #A8D897;
+}
+
+.answer_container #answer {
+  height: 5rem;
+  width: 60%;
+  font-size: x-large;
+  resize: none;
+}
+
+/* START OF DESCRIPTION */
+
+
+
+
 .description {
     display: flex;
     justify-content: center;
