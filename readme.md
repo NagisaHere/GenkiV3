@@ -1,9 +1,10 @@
 # Genki Kanji Generator
 What does this do?<br/>
-From all the GENKI Kanji, select 4 random kanji and write a sentence using at
-least one of the grammar patterns learnt in JAPN3010/JAPN3020 (Taught at UQ)
+From all the GENKI Kanji, 4 random kanji will be generated, and students have to write a sentence using at least two Kanji and One of the grammar patterns learnt in JAPN3010/JAPN3020 (Taught at UQ)
 
 ## To do
-- Add a functionality to exclude rare kanji from the array<br/>
 - Add Genki ch15-19 Kanji and functionality to select between kanji Pools
-- Add a drop-down menu that presents a grammar list by chapter
+- Add links to the Course ECP
+- Adding an AI chatbot for queries
+- Adding a textbox to check if grammar and Kanji has been used properly.
+- For mobile, change to a drop down menu for the grammar selection and make the grammar only in one bar
