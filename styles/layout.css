@@ -1,18 +1,5 @@
+@import "./global.css";
 @import "./navbar.css";
 @import "./KanjiBody.css";
 @import "./Grammar.css";
 @import "./styles.css";
-
-* {
-    /*Box sizing allows padding and border properties
-    In the width and height of a div
-    By default, the actual width and height is calculated as
-    width + padding + border, thus using border-box would take
-    padding and border out of the actual width and height*/
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Kumbh Sans', sans-serif;
-    /* turns out setting background colour in root ruins a lot of things...*/
-
-}
