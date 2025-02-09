@@ -1,0 +1,19 @@
+* {
+    /*Box sizing allows padding and border properties
+    In the width and height of a div
+    By default, the actual width and height is calculated as
+    width + padding + border, thus using border-box would take
+    padding and border out of the actual width and height*/
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.changelog__body {
+    background-color: #A8D897;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 6.5rem;
+}

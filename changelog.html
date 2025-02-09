@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog</title>
+    <link rel="stylesheet" href="./styles/navbar.css"/>
+    <link rel="stylesheet" href="./styles/changelog.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <!--This is a container-->
+        <div class="navbar__container"> 
+            <a href="/index.html" id="navbar__logo"><i class="fas fa-fire"></i>GENKI Kanji Generator</a>
+            <!--A div class and id are just attributes used to target-->
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <!--Unordered list (ul), I have no idea what it is used for-->
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="https://github.com/NagisaHere/" target="_blank" class="navbar__links">GitHub</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="https://ebookcentral.proquest.com/lib/uql/detail.action?docID=6417968" target="_blank" class="navbar__links">Textbook</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="./index.html" class="navbar__links">Kanji</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="changelog__body">
+        <h1 id="features">Features</h1>
+        <ul>
+        <li>Click on displayed Kanji to see the jisho definition</li>
+        <li>Click on grammar buttons of each chapter to see which grammar needs to be used</li>
+        </ul>
+        <h1 id="todo">TODO</h1>
+        <ul>
+        <li>To-do items can be found in issues at <a href="https://github.com/NagisaHere/GenkiV3/issues">https://github.com/NagisaHere/GenkiV3/issues</a></li>
+        </ul>
+        <h1 id="changelog-dd-mm-yyyy-">Changelog (dd-mm-yyyy)</h1>
+        <h2 id="09-02-2024">09-02-2024</h2>
+        <ul>
+        <li>Changed up the file structure of files for cleaner organisation.</li>
+        </ul>
+        <h2 id="29-01-2024">29-01-2024</h2>
+        <ul>
+        <li>Fixed missing data from JAPN3020 by including Kanji words that may have Hiragana.</li>
+        <li>Included words from JAPN3010 (Genki Chapter 15-19).</li>
+        </ul>
+        <h2 id="02-09-2024">02-09-2024</h2>
+        <ul>
+        <li>Changed the kanji pool to reflect the JAPN Anki Deck.</li>
+        <li>Removed the toggle rare button (since words are not tagged as rare anymore)</li>
+        <li>Added a grammar selection tool that allows you to see the grammar studied in each chapter</li>
+        <li>Added a jisho hyperlink for each kanji generated so that you can click a kanji and find the definition.</li>
+        <li>Added references to the textbook and github repository in Navbar</li>
+        </ul>
+        <h2 id="11-07-2024">11-07-2024</h2>
+        <ul>
+        <li>Added a toggle rare button to remove words with rare kanji forms</li>
+        </ul>
+        <h2 id="29-06-2024">29-06-2024</h2>
+        <ul>
+        <li>The birth of this website!</li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-commonmark.js"></script> 
+</body>
+</html>
