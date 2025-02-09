@@ -1,4 +1,4 @@
-import { KANJIONE, KANJITWO, GRAMMARTWO } from "./data.js";
+import { KANJIONE, KANJITWO, GRAMMARTWO } from "../data/data.js";
 
 const kanjiLength = KANJITWO.length;
 const ALLKANJI = KANJIONE.concat(KANJITWO)
@@ -169,3 +169,4 @@ for (let chapter in chapterIndexes) {
 
     })
 }
+

@@ -1,0 +1,140 @@
+/*Navbar configuration*/
+.navbar {
+    background: #fff;
+    height: 80px;
+    /*flex brings elements onto a "row"
+    essentially positioning things like a box array*/
+    display: flex;
+    /*changes the alignment in a flex box
+    you can see the effect in https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content*/
+    justify-content: center;
+    align-items: center;
+    /*font size relative to root font size, which acts as a "multipler"
+    by default the font size is 16px*/
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    /*z-index is the "layer" of the element
+    999 or some big number ensures that the navbar is always above other
+    elements when scrolling through the site.*/
+    z-index: 999;
+  }
+  
+  .navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    /*margin in px in order of top, right, bottom, left*/
+    margin: 0 auto;
+    padding: 0 50px;
+  }
+  
+  /*# is used for html elements with id*/
+  #navbar__logo {
+    background-color: #131313;
+    background-size: 100%;
+    /*These are used to make sure site works on different browsers*/
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    /*Used for font of Logo*/
+    display: flex;
+    /*see below; center and stretch seems the most useful
+    https://developer.mozilla.org/en-US/docs/Web/CSS/align-items*/
+    align-items: center;
+    /*Determine what type of cursor is used when hovering over*/
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+  }
+  
+  .fa-gem {
+    margin-right: 0.5rem;
+  }
+  
+  .navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+  }
+  
+  .navbar__item {
+    height: 80px;
+  }
+  
+  .navbar__links {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%
+  }
+  
+  .navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+  }
+  
+  .navbar__links:hover {
+    color: #35721f;
+    transition: all 0.3s ease;
+  }
+  
+  
+   /* Dropdown Button */
+   .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;} 
+  
+  
+  /* END OF NAVBAR */
