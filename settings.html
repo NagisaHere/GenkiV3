@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/navbar.css"/>
-    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/settings.css">
     <title>Document</title>
 </head>
 <body>
@@ -44,10 +44,27 @@
         </div>
     </nav>
 
-    <div w3-include-html="navbar.html"></div>
-    <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
+    <div class="settings__container">
+        <div class="chapter__container">
+            <ul class="chapter__menu">
+                <li class="chapter__item">
+                    <input type="checkbox" id="ch15" name="ch15" value="ch15">
+                    <label for="vehicle1">Ch15</label><br>
+                </li>
+                <li class="chapter__item">
+                    <input type="checkbox" id="ch16" name="ch16" value="ch16">
+                    <label for="vehicle1">Ch16</label><br>
+                </li>
+            </ul>
+            <ul class="chapter__menu">
+                <li class="chapter__item" id="ch19"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="save__container">
+        <button type="button" id="save__button"></button>
+    </div>
+    <script src="./scripts/settings.js"></script>
 </body>
 </html>
