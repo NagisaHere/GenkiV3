@@ -1,14 +1,72 @@
+import { CHAPTERLIST } from "../data/data.js";
+
 const testChapter = document.getElementById("ch15");
+const chapterContainer = document.getElementsByClassName("chapter__container");
 
 
 const saveButton = document.getElementById("save__button");
 
+function initialiseSettings() {
+    for (let chapter in CHAPTERLIST) {
+        localStorage.setItem(chapter, "0");
+    }
+}
+
+function loadSettings() {
+    // if there is a null, run initialiseSettings
+    for (let chapter in CHAPTERLIST) {
+        var tempChapter = document.getElementById(CHAPTERLIST[chapter]);
+        const item = localStorage.getItem(CHAPTERLIST[chapter]);
+        if (item == "1") {
+            tempChapter.checked = true;
+        } else if (item == "0") {
+            tempChapter.checked = false;
+        } else {
+            // null; intialise settings
+            initialiseSettings();
+            console.log("settings has been intialised.")
+            return;
+        }
+    }
+
+    console.log("settings has been loaded.")
+}
+
+
+loadSettings()
+
 // only the ones that are toggled on should get submitted
 saveButton.addEventListener("click", () => {
-    if (testChapter.checked == true) {
-        console.log("value of ch15 is " + testChapter.value);
-    } else {
-        console.log("ch15 has not been cheked");
+    // for (let chapterMenu in chapterContainer.children) {
+    //     for (let chapterItem in chapterMenu.children) {
+    //         // write logic here
+    //         var checkbox = chapterItem[0];
+    //         if (checkbox.checked == true) {
+    //             console.log(`value is ${checkbox.id}`);
+    //         } else {
+    //             console.log(`value ${checkbox.id} is not checked`);
+    //         }
+    //     }
+    // }
+
+    for (let chapter in CHAPTERLIST) {
+        var chapterItem = document.getElementById("chapter__item"); // this only gets first element for some reason
+        console.log(chapterItem);
+        if (checkbox.checked == true) {
+            console.log(`value is ${checkbox.id}`);
+        } else {
+            console.log(`value ${checkbox.id} is not checked`);
+        }
     }
+
+
+    // if (testChapter.checked == true) {
+        
+    //     localStorage.setItem(testChapter.value, "1")
+    // } else {
+    //     console.log("ch15 has not been checked");
+    // }
     
 })
+
+

@@ -878,3 +878,5 @@ export const GRAMMARTWO = {
     ],
 
 }
+
+export const CHAPTERLIST = ["ch15", "ch16", "ch17","ch18","ch19","ch20","ch21","ch22","ch23"]
