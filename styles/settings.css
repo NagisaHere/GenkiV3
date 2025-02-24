@@ -1,5 +1,12 @@
 @import "./global.css";
 
+.settings__container {
+    background-color: #A8D897;
+}
+
+.chapter__item {
+
+}
 
 #save__button {
     width: 100%;

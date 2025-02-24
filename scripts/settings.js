@@ -50,11 +50,13 @@ saveButton.addEventListener("click", () => {
     // }
 
     for (let chapter in CHAPTERLIST) {
-        var chapterItem = document.getElementById("chapter__item"); // this only gets first element for some reason
-        console.log(chapterItem);
+        var checkbox = document.getElementById(CHAPTERLIST[chapter]);
+        
         if (checkbox.checked == true) {
             console.log(`value is ${checkbox.id}`);
+            localStorage.setItem(CHAPTERLIST[chapter], "1")
         } else {
+            localStorage.setItem(CHAPTERLIST[chapter], "0")
             console.log(`value ${checkbox.id} is not checked`);
         }
     }
