@@ -9,7 +9,7 @@ const saveButton = document.getElementById("save__button");
 
 function initialiseSettings() {
     for (let chapter in CHAPTERLIST) {
-        localStorage.setItem(chapter, "1");
+        window.localStorage.setItem(chapter, "1");
     }
 }
 
@@ -17,7 +17,7 @@ function loadSettings() {
     // if there is a null, run initialiseSettings
     for (let chapter in CHAPTERLIST) {
         var tempChapter = document.getElementById(CHAPTERLIST[chapter]);
-        const item = localStorage.getItem(CHAPTERLIST[chapter]);
+        const item = window.localStorage.getItem(CHAPTERLIST[chapter]);
         if (item == "1") {
             tempChapter.checked = true;
         } else if (item == "0") {

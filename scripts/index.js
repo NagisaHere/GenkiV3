@@ -1,24 +1,39 @@
 import { GRAMMARTWO, CHAPTERLIST } from "../data/data.js";
 import { KANJIDATA } from "../data/newdata.js";
 
-var kanjiLength = 0
+var kanjiLength = 2
 var KANJIPOOL = []
 
 // build kanji based off settings
 function initialiseSettings() {
     for (let chapter in CHAPTERLIST) {
-        localStorage.setItem(chapter, "1");
+        window.localStorage.setItem(CHAPTERLIST[chapter], "1");
     }
 }
 
+// this is not being run at all
 function loadSettings() {
     // if there is a null, run initialiseSettings
     
     KANJIPOOL = []
     currArray = []
 
+    // smoke test
+    
+    try {
+        const temp = localStorage.getItem("ch15");
+        if (temp != "1" || temp != "0") {
+            initialiseSettings();
+            return;
+        }
+    } catch (e) {
+        console.log(e)
+        initialiseSettings()
+        return;
+    }
+
     for (let chapter in CHAPTERLIST) {
-        const item = localStorage.getItem(CHAPTERLIST[chapter]);
+        const item = window.localStorage.getItem(CHAPTERLIST[chapter]);
         console.log(item)
         if (item == "1") {
             // add json
@@ -54,7 +69,9 @@ function FetchKanji() {
     let appendedIndex = [];
     let appended = [];
 
+    // seems to time out here? Could be stuck in infinite while loop for whatever reason?
     while (i < 4) {
+        // this j is most likely why it could be bad
         let j = generateRandom(kanjiLength-1);
         // console.log(j);
         let elem = currArray[j]
@@ -99,10 +116,6 @@ function ChangeKanji() {
     }
     
 }
-
-// tester function
-console.log(FetchKanji());
-
 
 // fancy ripple effect
 const btns = document.querySelectorAll(".btn-ripple");
