@@ -1,14 +1,52 @@
-import { KANJIONE, KANJITWO, GRAMMARTWO } from "../data/data.js";
+import { GRAMMARTWO, CHAPTERLIST } from "../data/data.js";
+import { KANJIDATA } from "../data/newdata.js";
 
-const kanjiLength = KANJITWO.length;
-const ALLKANJI = KANJIONE.concat(KANJITWO)
+var kanjiLength = 0
+var KANJIPOOL = []
+
+// build kanji based off settings
+function initialiseSettings() {
+    for (let chapter in CHAPTERLIST) {
+        localStorage.setItem(chapter, "1");
+    }
+}
+
+function loadSettings() {
+    // if there is a null, run initialiseSettings
+    
+    KANJIPOOL = []
+    currArray = []
+
+    for (let chapter in CHAPTERLIST) {
+        const item = localStorage.getItem(CHAPTERLIST[chapter]);
+        console.log(item)
+        if (item == "1") {
+            // add json
+            KANJIPOOL = KANJIPOOL.concat(KANJIDATA[CHAPTERLIST[chapter]])
+            console.log(`added chapter ${CHAPTERLIST[chapter]}`)
+        } else if (item == "0") {
+            continue;
+        } else {
+            // null; intialise settings
+            initialiseSettings();
+            console.log("settings has been intialised.")
+            return;
+        }
+    }
+
+    console.log("settings has been loaded.")
+    kanjiLength = KANJIPOOL.length
+}
+
+loadSettings()
+
 
 function generateRandom(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
 var darkMode = false
-var currArray = ALLKANJI
+var currArray = KANJIPOOL
 
 function FetchKanji() {
     console.log("function has been called")

@@ -1,5 +1,6 @@
 import { CHAPTERLIST } from "../data/data.js";
 
+
 const testChapter = document.getElementById("ch15");
 const chapterContainer = document.getElementsByClassName("chapter__container");
 
@@ -8,7 +9,7 @@ const saveButton = document.getElementById("save__button");
 
 function initialiseSettings() {
     for (let chapter in CHAPTERLIST) {
-        localStorage.setItem(chapter, "0");
+        localStorage.setItem(chapter, "1");
     }
 }
 
