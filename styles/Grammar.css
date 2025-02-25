@@ -67,12 +67,6 @@
   }
   
   
-  .footer {
-    padding-left: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  
   @media screen and (max-width: 960px) {
     /* 2 bars collapse into 1, with a little bit of spacing*/
     #grammar__content {

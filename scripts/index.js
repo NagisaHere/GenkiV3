@@ -1,14 +1,66 @@
-import { KANJIONE, KANJITWO, GRAMMARTWO } from "../data/data.js";
+import { GRAMMARTWO, CHAPTERLIST } from "../data/data.js";
+import { KANJIDATA } from "../data/newdata.js";
 
-const kanjiLength = KANJITWO.length;
-const ALLKANJI = KANJIONE.concat(KANJITWO)
+var kanjiLength = 0
+var KANJIPOOL = []
+var noKanjiFlag = false
+
+// build kanji based off settings
+function initialiseSettings() {
+    for (let chapter in CHAPTERLIST) {
+        window.localStorage.setItem(CHAPTERLIST[chapter], "1");
+    }
+
+    console.log("settings has been intiialised")
+}
+
+// this is not being run at all
+function loadSettings() {
+    // if there is a null, run initialiseSettings
+    
+    KANJIPOOL = []
+    currArray = []
+    var noKanji = true;
+    // smoke test
+    
+    // why are you like this
+    const temp = localStorage.getItem("ch15");
+    console.log(`temp is ${temp}`)
+    if (temp != "1" && temp != "0") {
+        initialiseSettings();
+    }
+
+    for (let chapter in CHAPTERLIST) {
+        const item = window.localStorage.getItem(CHAPTERLIST[chapter]);
+        console.log(item)
+        if (item == "1") {
+            // add json
+            KANJIPOOL = KANJIPOOL.concat(KANJIDATA[CHAPTERLIST[chapter]])
+            console.log(`added chapter ${CHAPTERLIST[chapter]}`)
+            noKanji = false;
+        } else if (item == "0") {
+            continue;
+        }
+    }
+    
+    console.log("settings has been loaded.")
+    kanjiLength = KANJIPOOL.length
+
+    if (noKanji) {
+        document.getElementById("kanji__placeholder").textContent = "No Kanji in Pool! Change in Settings.";
+        noKanjiFlag = true
+    }
+}
+
+loadSettings()
+
 
 function generateRandom(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
 var darkMode = false
-var currArray = ALLKANJI
+var currArray = KANJIPOOL
 
 function FetchKanji() {
     console.log("function has been called")
@@ -16,7 +68,9 @@ function FetchKanji() {
     let appendedIndex = [];
     let appended = [];
 
+    // seems to time out here? Could be stuck in infinite while loop for whatever reason?
     while (i < 4) {
+        // this j is most likely why it could be bad
         let j = generateRandom(kanjiLength-1);
         // console.log(j);
         let elem = currArray[j]
@@ -36,7 +90,9 @@ function FetchKanji() {
 let button1 = document.getElementById('generate');
 
 button1.addEventListener('click', () => {
-    ChangeKanji();
+    if (!noKanjiFlag) {
+        ChangeKanji();
+    }
 })
 
 function ChangeKanji() {
@@ -61,10 +117,6 @@ function ChangeKanji() {
     }
     
 }
-
-// tester function
-console.log(FetchKanji());
-
 
 // fancy ripple effect
 const btns = document.querySelectorAll(".btn-ripple");

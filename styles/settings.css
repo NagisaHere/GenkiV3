@@ -1,0 +1,39 @@
+@import "./global.css";
+@import "./footer.css";
+
+
+.settings__container {
+    background-color: #A8D897;
+}
+
+.chapter__header {
+    padding-top: 1rem;
+    padding-left: 2rem;
+}
+
+.chapter__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chapter__menu h1 {
+    padding-top: 1rem;
+    padding-left: 2rem;
+}
+
+.chapter__item {
+    padding-top: 1rem;
+    padding-left: 4rem;
+    font-size: 20px;
+}
+
+.save__container {
+    padding-top: 1rem;
+}
+
+#save__button {
+    font-size: 25px;
+    height: 3rem;
+    width: 100%;
+}

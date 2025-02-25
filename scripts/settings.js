@@ -1,36 +1,75 @@
+import { CHAPTERLIST } from "../data/data.js";
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-const settings = document.getElementById("settings");
-const dropdown = document.getElementById("myDropdown");
 
-function handleButtonClick(event) {
-    console.log("dropdown clicked");
-    dropdown.classList.toggle("show");
+const testChapter = document.getElementById("ch15");
+const chapterContainer = document.getElementsByClassName("chapter__container");
 
-    dropdown.addEventListener('click', function (event) {
-        if (event.target.classList.contains('toggle-3010')) {
-            console.log("button clicked for 3010");
-        }
-    })
+
+const saveButton = document.getElementById("save__button");
+
+function initialiseSettings() {
+    for (let chapter in CHAPTERLIST) {
+        window.localStorage.setItem(chapter, "1");
+    }
 }
 
-// click listener that shows the list of options
-settings.addEventListener('click', handleButtonClick)
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.matches('#dropdown__item')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-            }
+function loadSettings() {
+    // if there is a null, run initialiseSettings
+    for (let chapter in CHAPTERLIST) {
+        var tempChapter = document.getElementById(CHAPTERLIST[chapter]);
+        const item = window.localStorage.getItem(CHAPTERLIST[chapter]);
+        if (item == "1") {
+            tempChapter.checked = true;
+        } else if (item == "0") {
+            tempChapter.checked = false;
+        } else {
+            // null; intialise settings
+            initialiseSettings();
+            console.log("settings has been intialised.")
+            return;
         }
-
-        // additionally remove the event listener for dropdown buttons
-        dropdown.removeEventListener('click', handleButtonClick);
     }
-} 
+
+    console.log("settings has been loaded.")
+}
+
+
+loadSettings()
+
+// only the ones that are toggled on should get submitted
+saveButton.addEventListener("click", () => {
+    // for (let chapterMenu in chapterContainer.children) {
+    //     for (let chapterItem in chapterMenu.children) {
+    //         // write logic here
+    //         var checkbox = chapterItem[0];
+    //         if (checkbox.checked == true) {
+    //             console.log(`value is ${checkbox.id}`);
+    //         } else {
+    //             console.log(`value ${checkbox.id} is not checked`);
+    //         }
+    //     }
+    // }
+
+    for (let chapter in CHAPTERLIST) {
+        var checkbox = document.getElementById(CHAPTERLIST[chapter]);
+        
+        if (checkbox.checked == true) {
+            console.log(`value is ${checkbox.id}`);
+            localStorage.setItem(CHAPTERLIST[chapter], "1")
+        } else {
+            localStorage.setItem(CHAPTERLIST[chapter], "0")
+            console.log(`value ${checkbox.id} is not checked`);
+        }
+    }
+
+
+    // if (testChapter.checked == true) {
+        
+    //     localStorage.setItem(testChapter.value, "1")
+    // } else {
+    //     console.log("ch15 has not been checked");
+    // }
+    
+})
+
 
