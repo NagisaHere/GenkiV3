@@ -3,6 +3,7 @@ import { KANJIDATA } from "../data/newdata.js";
 
 var kanjiLength = 0
 var KANJIPOOL = []
+var noKanjiFlag = false
 
 // build kanji based off settings
 function initialiseSettings() {
@@ -19,14 +20,14 @@ function loadSettings() {
     
     KANJIPOOL = []
     currArray = []
-
+    var noKanji = true;
     // smoke test
     
-
+    // why are you like this
     const temp = localStorage.getItem("ch15");
-    if (temp != "1" || temp != "0") {
+    console.log(`temp is ${temp}`)
+    if (temp != "1" && temp != "0") {
         initialiseSettings();
-        console.log("called from here")
     }
 
     for (let chapter in CHAPTERLIST) {
@@ -36,13 +37,19 @@ function loadSettings() {
             // add json
             KANJIPOOL = KANJIPOOL.concat(KANJIDATA[CHAPTERLIST[chapter]])
             console.log(`added chapter ${CHAPTERLIST[chapter]}`)
+            noKanji = false;
         } else if (item == "0") {
             continue;
         }
     }
-
+    
     console.log("settings has been loaded.")
     kanjiLength = KANJIPOOL.length
+
+    if (noKanji) {
+        document.getElementById("kanji__placeholder").textContent = "No Kanji in Pool! Change in Settings.";
+        noKanjiFlag = true
+    }
 }
 
 loadSettings()
@@ -83,7 +90,9 @@ function FetchKanji() {
 let button1 = document.getElementById('generate');
 
 button1.addEventListener('click', () => {
-    ChangeKanji();
+    if (!noKanjiFlag) {
+        ChangeKanji();
+    }
 })
 
 function ChangeKanji() {
