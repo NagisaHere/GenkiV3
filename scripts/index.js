@@ -1,7 +1,7 @@
 import { GRAMMARTWO, CHAPTERLIST } from "../data/data.js";
 import { KANJIDATA } from "../data/newdata.js";
 
-var kanjiLength = 2
+var kanjiLength = 0
 var KANJIPOOL = []
 
 // build kanji based off settings
@@ -9,6 +9,8 @@ function initialiseSettings() {
     for (let chapter in CHAPTERLIST) {
         window.localStorage.setItem(CHAPTERLIST[chapter], "1");
     }
+
+    console.log("settings has been intiialised")
 }
 
 // this is not being run at all
@@ -20,16 +22,11 @@ function loadSettings() {
 
     // smoke test
     
-    try {
-        const temp = localStorage.getItem("ch15");
-        if (temp != "1" || temp != "0") {
-            initialiseSettings();
-            return;
-        }
-    } catch (e) {
-        console.log(e)
-        initialiseSettings()
-        return;
+
+    const temp = localStorage.getItem("ch15");
+    if (temp != "1" || temp != "0") {
+        initialiseSettings();
+        console.log("called from here")
     }
 
     for (let chapter in CHAPTERLIST) {
@@ -41,11 +38,6 @@ function loadSettings() {
             console.log(`added chapter ${CHAPTERLIST[chapter]}`)
         } else if (item == "0") {
             continue;
-        } else {
-            // null; intialise settings
-            initialiseSettings();
-            console.log("settings has been intialised.")
-            return;
         }
     }
 
